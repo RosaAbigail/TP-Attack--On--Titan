@@ -16,10 +16,10 @@ public class Proyectil {
 	// Constructores
 	public Proyectil(Entorno e, double x, double y, double orientacion) {
 		this.x = x;
-    this.y = y;
-    this.orientacion = orientacion;
-    this.velocidad = 5;
-    this.radio = 25;
+        	this.y = y;
+        	this.orientacion = orientacion;
+        	this.velocidad = 5;
+        	this.radio = 25;
 		this.p = Herramientas.cargarImagen("p.png");
 	}
 	
@@ -28,32 +28,32 @@ public class Proyectil {
 		e.dibujarImagen(this.p, this.x, this.y, 0);
 	}
 	
-  public void desplazamiento() {
-        this.x += Math.cos(this.orientacion) * this.velocidad;
-        this.y += Math.sin(this.orientacion) * this.velocidad;
+	public void desplazamiento() {
+        	this.x += Math.cos(this.orientacion) * this.velocidad;
+        	this.y += Math.sin(this.orientacion) * this.velocidad;
 	}			
 	
-  public boolean colisionConKyojin(Kyojin k) {
+	public boolean colisionConKyojin(Kyojin k) {
 		return (this.x - k.getX()) * (this.x - k.getX()) + (this.y - k.getY()) * (this.y - k.getY()) <= this.radio * k.getRadio();
 	}
 	
-  public boolean colisionConObstaculo (Obstaculo o) {
+	public boolean colisionConObstaculo(Obstaculo o) {
 		return (this.x - o.getX()) * (this.x - o.getX()) + (this.y - o.getY()) * (this.y - o.getY()) <= this.radio * o.getRadio();
 	}
 	
-  public boolean colisionConEntorno(Entorno e) {
-		return this.x <= this.radio || this.y <= this.radio || this.x >= e.ancho() - this.radio || this.y >= e.alto() - this.radio;
+	public boolean colisionConEntorno(Entorno e) {
+		return this.x < this.radio/2 || this.y < this.radio/2 || this.x > e.ancho() - this.radio/2 || this.y > e.alto() - this.radio/2;
 	}
 	
-  public double getX() {
+	public double getX() {
 		return this.x;
 	}
 	
-  public double getY() {
+	public double getY() {
 		return this.y;
 	}
-	
-  public double getRadio() {
+
+	public double getRadio() {
 		return this.radio;
 	}
 }

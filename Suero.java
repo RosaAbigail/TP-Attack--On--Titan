@@ -23,16 +23,16 @@ public class Suero {
 	public void dibujar(Entorno e) {
 		e.dibujarImagen(this.s, this.x, this.y, 0);
 	}
-	
-  public double getX() {
+
+	public double getX() {
 		return this.x;
 	}
 	
-  public double getY() {
+	public double getY() {
 		return this.y;
 	}
-	
-  public double getRadio() {
+
+	public double getRadio() {
 		return this.radio;
 	}
 }
